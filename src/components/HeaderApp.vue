@@ -5,9 +5,9 @@
 </script>
 
 <template>
-  <div class="container-fluid border border-warning">
+  <div class="container-fluid border border-warning bg-dark">
     <div class="col text-left">
-        <h1>Yu-gi-oh API</h1>
+        <h1 class="text-light">Yu-gi-oh API</h1>
     </div>
   </div>
 </template>

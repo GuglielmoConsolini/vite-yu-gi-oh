@@ -2,19 +2,16 @@
   export default {
   name: "SingleCard",
   props: {
-    card: {
-      type: Object,
-      required: true
-    }
+    carta: Object
   }
 };
 </script>
 
 <template>
   <div class="card">
-    <img :src="card.card_images[0].image_url" :alt="card.name" class="card-image" />
-    <h2 class="card-name">{{ card.name }}</h2>
-    <p class="card-archetype">{{ card.archetype }}</p>
+    <img :src="carta.card_images[0].image_url" :alt="carta.name" class="card-image" />
+    <h2 class="card-name">{{ carta.name }}</h2>
+    <p class="card-archetype">{{ carta.archetype }}</p>
   </div>
 </template>
 

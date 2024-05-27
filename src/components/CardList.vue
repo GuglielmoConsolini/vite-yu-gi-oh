@@ -17,7 +17,7 @@ import SingleCard from './SingleCard.vue';
 
 <template>
   <div class="card-list">
-    <SingleCard v-for="card in store.carte" :key="card.name"  :card="card" />
+    <SingleCard v-for="card in store.carte" :key="card.name"  :carta="card" />
   </div>
 </template>
 
