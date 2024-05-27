@@ -1,5 +1,5 @@
 <script>
-import { store } from './data/store.js'
+import  store  from '../data/store.js'
 import SingleCard from './SingleCard.vue';
 
  export default {
