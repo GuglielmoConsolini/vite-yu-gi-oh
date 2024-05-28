@@ -17,14 +17,25 @@ export default {
   },  
 
   methods: {
-    
+    mostraCarte(){
+      axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php").then(risultato =>{
+        this.store.carte = risultato.data.data;
+      })
+    }, 
+
+    mostraArchetipi() {
+      axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=" + this.selectedArchetype).then(risultato => {
+      this.store.carte = risultato.data.data;
+    })
+    }
   },
 
   created() {
 
-    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=" + this.selectedArchetype).then(risultato => {
-      this.store.carte = risultato.data.data;
-    })
+    this.mostraCarte(),
+
+    this.mostraArchetipi(),
+
     axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php").then(risultato => {
       this.store.archetypes = risultato.data;
        
@@ -43,9 +54,9 @@ export default {
   <HeaderApp />
   <div class="position-absolute top-0 end-0">
     <label for="archetype-select">Seleziona Archetipo:</label>
-    <select id="archetype-select" v-model="selectedArchetype">
+    <select id="archetype-select" @change="mostraArchetipi" v-model="selectedArchetype">
       <option value="">Tutti</option>
-      <option v-for="archetype in store.archetypes" :key="archetype" :value="archetype">{{ archetype.archetype_name }}</option>
+      <option v-for="archetype in store.archetypes" :key="archetype" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
     </select>
   </div>
   <CardList />
