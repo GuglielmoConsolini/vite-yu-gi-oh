@@ -14,21 +14,22 @@ export default {
       store,
       selectedArchetype: '',
     }
-  },
+  },  
+
   methods: {
     
   },
 
   created() {
 
-    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php").then(risultato => {
+    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=" + this.selectedArchetype).then(risultato => {
       this.store.carte = risultato.data.data;
     })
-    axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php").then(response => {
-      this.store.archetypes = response.data;
+    axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php").then(risultato => {
+      this.store.archetypes = risultato.data;
        
     })
-    console.log(store)
+    console.log(this.selectedArchetype)
 
   },
 

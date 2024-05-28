@@ -12,6 +12,9 @@ import SingleCard from './SingleCard.vue';
       store
     }
   },
+  methods: {
+    
+  },
   mounted() {
     console.log(store)
   }
