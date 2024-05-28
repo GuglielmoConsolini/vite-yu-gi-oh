@@ -1,7 +1,8 @@
 import { reactive } from 'vue';
 
 const store = reactive({
-  carte: []
+  carte: [],
+  archetypes: []
 });
 
 export default store;
